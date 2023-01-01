@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="registrationScript.js"> </script>    
+</head>
+
+<body style="height:100%">
+    <!-- MultiStep Form -->
+    <div class="container-fluid" id="grad1" style="height:100%">
+        <div class="row justify-content-center mt-0">
+            <div class="col-12 col-sm-12 col-md-9 col-lg-9 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2><strong>Registration Form</strong></h2>
+                    <p>Fill all form field to go to next step</p>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+
+                            <form id="msform">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+
+                                    <li id="personal" class="active"><strong>Personal</strong></li>
+                                    <li id="education"><strong>Education & Employment</strong></li>
+                                    <li id="skills"><strong>Skills</strong></li>
+                                    <li id="confirm"><strong>Finish</strong></li>
+                                </ul>
+                                <!-- fieldsets -->
+                                <fieldset id="personal_information" class="">
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Personal Information</h2>
+                                        <div class="row d-flex justify-content-center mt-5">
+                                            <div class="col-md-12">
+                                                <span id="namecheck" style="color: red;display:none;">
+                                                    *Name is missing
+                                                </span>
+                                                <input type="text" name="fullname" id="fullname" placeholder="Full name" class="dummy" />
+                                                <!-- <span id="namecheck" style="color: red;display:none;">
+                                                    *Name is missing
+                                                </span> -->
+                                                <span id="gendercheck" style="color: red;display:none;">
+                                                    *Gender is missing
+                                                </span>
+                                                <select name="Gender" id="gender">
+                                                    <option value="" disabled selected>Choose Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                                <!-- <span id="gendercheck" style="color: red;display:none;">
+                                                    *Gender is missing
+                                                </span> -->
+                                                <span id="emailcheck" style="color: red;display:none;">
+                                                    *Email is missing
+                                                </span>
+                                                <input type="email" name="email" id="email" placeholder="Email Id" />
+                                                <!-- <span id="emailcheck" style="color: red;display:none;">
+                                                    *Email is missing
+                                                </span> -->
+                                                <span id="phnocheck" style="color: red;display:none;">
+                                                    *Phone is missing
+                                                </span>
+                                                <input type="text" name="phno" id="phoneNumber" placeholder="Phone/Whatsapp" />
+                                                <!-- <span id="phnocheck" style="color: red;display:none;">
+                                                    *Phone is missing
+                                                </span> -->
+                                                <textarea class="form-control" id="address" placeholder="Address" rows="3"></textarea>
+                                                <span id="addresscheck" style="color: red;display:none;">
+                                                    *Not valid Address or blank
+                                                </span>
+                                            </div>
+                                        </div>                                      
+
+                                    </div>
+                                    <input type="button" id="btnPersonalInfo" name="next" class="action-button"
+                                        value="Next Step" />
+                                </fieldset>
+                                <fieldset id="educational_information" class="" style="display:none">
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Educational Information</h2>
+                                        <span id="educatioerrorcheck" style="color: red;display:none;">
+                                            *Educational details are missing
+                                        </span>
+                                            <div class="row mt-3">
+                                                <div class="col-md-10">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered" id="educationtable">
+                                                            <thead>
+                                                                <tr>
+        
+                                                                    <th class="text-center">Education level</th>
+                                                                    <th class="text-center">Institution Name</th>
+                                                                    <th class="text-center">Year of Passout</th>
+                                                                    <th class="text-center">Remove</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="Educationtbody" class="dummy">
+        
+                                                            </tbody>
+                                                        </table>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button class="btn btn-md btn-primary" id="addBtn" type="button">
+                                                        Add new
+                                                    </button>
+                                                </div>
+                                            </div>                                         
+                                         
+                                       
+                                        <h2 class="fs-title">Employment Information</h2>
+                                        <span id="emperrorcheck" style="color: red;display:none;">
+                                            *Employment details are missing
+                                        </span>
+                                        <div class="row mt-3">
+                                            <div class="col-md-10">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="employeetable">
+                                                        <thead>
+                                                            <tr>
+    
+                                                                <th class="text-center">Job Role</th>
+                                                                <th class="text-center">Company Name</th>
+                                                                <!-- <th class="text-center">Start Date</th> -->
+                                                                <th class="text-center">Experience in years</th>
+                                                                <th class="text-center">Remove</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="Employeetbody" class="dummy">
+    
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-md btn-primary" id="addEmployeeBtn" type="button">
+                                                    Add new
+                                                </button>  
+                                            </div>
+                                        </div>                                    
+                                                                                 
+                                        <br>
+                                        <span id="resumecheck" style="color: red;display:none;">
+                                            *Resume link is missing
+                                        </span>
+                                        <input type="text" name="resumelink" id="resumelink"
+                                            placeholder="Resume Link" />
+                                            <!-- <span id="resumecheck" style="color: red;display:none;">
+                                                *Resume link is missing
+                                            </span> -->
+                                        <input type="text" name="linkedinlink" id="linkedinlink"
+                                            placeholder="LinkedIn Link" />
+                                    </div>
+
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" />
+                                    <input type="button" name="next" id="btnEmployeeDetails" class="next action-button" value="Next Step" />
+                                </fieldset>
+                                <fieldset id="skill_information" class="">
+                                    <div class="form-card">
+                                        <h2 class="fs-title mb-3">Skill Information</h2>
+                                        <div class="form-element">
+
+                                            
+                                            <div class="row d-flex justify-content-center mt-3">
+                                                
+                                                <div class="col-md-3">
+                                                    <label for="usr">Expertise in Technologies</label>
+                                                </div>
+                                                <!-- <span id="technologycheck" style="color: red;display:none;">
+                                                    *please select Technologies
+                                                </span> -->
+                                                <div class="col-md-9">
+                                                    <select id="technlogiesList" multiple>   
+                                                                                                        
+                                                    </select>
+                                                    <span id="technologycheck" style="color: red;display:none;">
+                                                        *please select Technologies
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="row d-flex justify-content-center mt-3">
+                                                <div class="col-md-3">
+                                                    <label for="usr">Programming Languages</label>
+                                                </div>
+                                                <!-- <span id="languagecheck" style="color: red;display:none;">
+                                                    *please select Languages
+                                                </span> -->
+                                                <div class="col-md-9">
+                                                    <select id="LanguagesList"
+                                                        placeholder="Select upto 5 Languages" multiple>                                                  
+                                                    </select>
+                                                    <span id="languagecheck" style="color: red;display:none;">
+                                                        *please select Languages
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-md-3">
+                                                    <span id="roleratingcheck" style="color: red;display:none;">
+                                                        *please select rating
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div id="rate">
+
+                                                    </div>
+
+                                                </div>
+                                               
+                                            </div>
+                                           
+                                        </div>  
+                                        <span id="rolecheck" style="color: red;display:none;" >
+                                            *please select role
+                                        </span>
+
+                                        <input type="text" name="Role" id="Role" placeholder="Role" />
+                                        <!-- <span id="rolecheck" style="color: red;display:none;">
+                                            *please select role
+                                        </span> -->
+                                        <input type="text" name="worksamples" id="worksamples"
+                                            placeholder="Worksamples / Github Link / Sample Projects" />
+                                        <input type="text" name="availabilitytime" id="availabilitytime"
+                                            placeholder="Availabity Time" />
+                                        <input type="text" name="comments" id="comments"
+                                            placeholder="Any Comments / Suggestions" />
+                                    </div>
+
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" />
+                                    <input type="submit" id="submit" name="submitAll" class="next action-button"
+                                        value="Confirm" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Success !</h2>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <img src="https://img.icons8.com/color/96/000000/ok--v2.png"
+                                                    class="fit-image">
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>You Have Successfully Registered</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
